@@ -1,4 +1,5 @@
 import { db } from "../server/db/index"
+import Image from 'next/image'
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +14,7 @@ export default async function HomePage() {
       <div className="flex flex-wrap gap-4" >
         {[...images, ...images, ...images].map((image, index) =>(
             <div key={image.id + "-" + index} className="flex w-48 flex-col">
-              <img src={image.url} alt="image" />
+              <Image src={image.url} width={200} height={200} alt="image" />
               <div>{image.name}</div>
             </div> 
           ))}
